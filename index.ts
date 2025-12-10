@@ -5,3 +5,5 @@ export function version() {
 }
 
 console.warn(`${packageJson.name} version is ${version()}`)
+
+export * from './src/index'

@@ -6,8 +6,14 @@ To install dependencies:
 bun install
 ```
 
-To run:
+To run test:
 
 ```bash
-bun run index.ts
+bun test
+```
+
+To build:
+
+```bash
+bun run build
 ```

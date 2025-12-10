@@ -3,6 +3,12 @@
   "type": "module",
   "version": "0.0.1",
   "private": true,
+  "exports": {
+    ".": "./index.ts",
+    "./dict": "./src/dict/index.ts",
+    "./number": "./src/number/index.ts",
+    "./browser": "./src/browser/index.ts"
+  },
   "module": "index.ts",
   "scripts": {
     "lint": "eslint",
@@ -14,10 +20,15 @@
   "peerDependencies": {
     "typescript": "^5"
   },
+  "dependencies": {
+    "@ipa-community/node-kit": "file:",
+    "lodash-es": "^4.17.21"
+  },
   "devDependencies": {
     "@antfu/eslint-config": "^6.6.1",
     "@commitlint/cli": "^20.2.0",
     "@commitlint/config-conventional": "^20.2.0",
+    "@happy-dom/global-registrator": "^20.0.11",
     "@types/bun": "latest",
     "eslint": "^9.39.1",
     "husky": "^9.1.7"
