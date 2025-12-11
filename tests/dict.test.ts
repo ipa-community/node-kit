@@ -1,5 +1,5 @@
-import { dict } from '@ipa-community/node-kit'
 import { describe, expect, it } from 'bun:test'
+import { dict } from '@/index'
 
 describe('dict', () => {
   it('join', () => {

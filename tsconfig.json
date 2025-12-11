@@ -6,7 +6,6 @@
     "lib": ["ESNext", "DOM", "DOM.Iterable", "Decorators"],
     "moduleDetection": "force",
     "module": "Preserve",
-
     // Bundler mode
     "moduleResolution": "bundler",
 

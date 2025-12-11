@@ -1,6 +1,6 @@
-import { resolveCssVar } from '@ipa-community/node-kit/browser'
-
 import { describe, expect, it } from 'bun:test'
+
+import { resolveCssVar } from '@/browser/index'
 
 describe('browser', () => {
   it('resolveCssVar', () => {

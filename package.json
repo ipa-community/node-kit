@@ -1,28 +1,35 @@
 {
   "name": "@ipa-community/node-kit",
   "type": "module",
-  "version": "0.0.1",
-  "private": true,
+  "version": "0.0.3",
+  "private": false,
   "exports": {
-    ".": "./index.ts",
-    "./dict": "./src/dict/index.ts",
-    "./number": "./src/number/index.ts",
-    "./browser": "./src/browser/index.ts"
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
   },
-  "module": "index.ts",
+  "types": "./dist/types/index.d.ts",
+  "files": ["README.md", "dist", "package.json"],
   "scripts": {
     "lint": "eslint",
     "lint:fix": "eslint --fix",
     "clean": "rm -rf dist && echo 'Done.'",
-    "build": "bun build index.ts --outdir dist",
-    "prepare": "husky"
+    "build:types": "tsc -p tsconfig.build.json",
+    "build": "bun run build.ts && bun run build:types",
+    "prepare": "test -d .git && npx husky",
+    "prepublishOnly": "bun run build"
   },
   "peerDependencies": {
     "typescript": "^5"
   },
   "dependencies": {
-    "@ipa-community/node-kit": "file:",
     "lodash-es": "^4.17.21"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^6.6.1",
@@ -30,6 +37,7 @@
     "@commitlint/config-conventional": "^20.2.0",
     "@happy-dom/global-registrator": "^20.0.11",
     "@types/bun": "latest",
+    "@types/lodash": "^4.17.21",
     "eslint": "^9.39.1",
     "husky": "^9.1.7"
   }
